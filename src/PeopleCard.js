@@ -14,7 +14,9 @@ export default class PeopleCard extends Component {
     super(props);
   }
   render() {
-    // const { name, subtitle, description } = this.props;
+    console.log(this.props.person);
+    let { id, name, subtitle, description } = this.props.person;
+
     return (
       <div>
         <Card>
@@ -25,10 +27,12 @@ export default class PeopleCard extends Component {
             alt="Card image cap"
           />
           <CardBody>
-            <CardTitle>{this.props.person.name}</CardTitle>
-            <CardSubtitle>{this.props.person.subtitle}</CardSubtitle>
-            <CardText>{this.props.person.description}</CardText>
-            <Button>Button</Button>
+            <CardTitle>{name}</CardTitle>
+            <CardSubtitle>{subtitle}</CardSubtitle>
+            <CardText>{description}</CardText>
+            <Button color="danger" onClick={() => this.props.removePerson(id)}>
+              Delete
+            </Button>
           </CardBody>
         </Card>
       </div>
